@@ -22,6 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose",
+    "test-coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -41,6 +42,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "coverageReporters": ["html"],
+    "collectCoverageFrom": ["**/src/components/*.{ts,tsx}", "**/src/model/*.{ts,tsx}"]
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.6"

@@ -1,5 +1,15 @@
 // Footer.scss
 
+@import 'Variables';
+
 .Footer {
-  
+  padding: 0.5em;
+  //position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  font-size: 0.8rem;
+  text-align: center;
+  color: white;
+  background-color: $primary-light;
 }

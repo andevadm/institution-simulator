@@ -1,13 +1,13 @@
 // Footer.tsx
 
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import '../styles/Footer.scss';
 
-function Footer() {
+const Footer: FunctionComponent<{}> = () => {
   return (
     <div className="Footer">
-      Footer
+      Source files can be found in a GitHub repository
     </div>
   )
 }

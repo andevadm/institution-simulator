@@ -1,5 +1,18 @@
 // Header.scss
 
+@import 'Variables';
+
 .Header {
-  
+  text-align: center;
+  padding: 10px;
+
+  h1 {
+    font-size: 1.5rem;
+    color: $primary-dark;
+  }
+
+  p {
+    color: $primary-light;
+  }
+
 }

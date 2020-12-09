@@ -1,5 +1,25 @@
 // Navigation.scss
 
+@import 'Variables';
+
 .Navigation {
-  
+  padding: 10px;
+  background-color: $primary-dark;
+
+  a {
+    display: inline-block;
+    padding: 0 1em;
+    color: white; 
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  // NavLink class
+  a.active {
+    color: $secondary-light;
+  }
+
 }

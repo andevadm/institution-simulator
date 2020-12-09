@@ -1,14 +1,25 @@
 // Model.tsx
-// Component with model simulator
+// Container of institution model
 
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import '../styles/Model.scss';
+import ModelDepartment from './ModelDepartment';
+import ModelInterface from './ModelInterface';
 
-function Model() {
+import { testState } from '../state/initial-state';
+
+
+const Model: FunctionComponent<{}> = () => {
   return (
     <div className="Model">
-      Model
+      <h2>Institution Model</h2>
+      {
+        testState.departments.map((element) => 
+          <ModelDepartment name={element.name} key={element.name} />
+        )
+      }
+      <ModelInterface />
     </div>
   )
 }

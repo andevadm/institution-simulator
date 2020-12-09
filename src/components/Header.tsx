@@ -1,13 +1,18 @@
 // Header.tsx
 
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import '../styles/Header.scss';
 
-function Header() {
+const Header: FunctionComponent<{}> = () => {
   return (
     <div className="Header">
-      Header
+      <h1>
+        Institution Simulator
+      </h1>
+      <p>
+        Fantasy model of some high school state institution
+      </p>
     </div>
   )
 }

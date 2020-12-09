@@ -1,9 +1,24 @@
 // App.scss
 
+@import 'Variables';
+
 .App {
+  min-height: 100vh;
   
   p {
     padding: 0.5em 0;
+  }
+
+  // heading of a route page
+  h2 {
+    padding-bottom: 1em;
+    font-size: 1.5em;
+    color: $secondary-dark;
+  }
+
+  // general error notifications
+  .error {
+    color: red;
   }
   
 }
