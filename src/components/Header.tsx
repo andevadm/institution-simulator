@@ -5,6 +5,7 @@ import React, { FunctionComponent } from 'react';
 import '../styles/Header.scss';
 
 const Header: FunctionComponent<{}> = () => {
+
   return (
     <div className="Header">
       <h1>
@@ -15,6 +16,7 @@ const Header: FunctionComponent<{}> = () => {
       </p>
     </div>
   )
+
 }
 
 export default Header;

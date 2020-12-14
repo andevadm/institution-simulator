@@ -3,17 +3,23 @@
 
 import React, { FunctionComponent } from 'react';
 
+import { useSelector } from 'react-redux';
+import { selectDepartmentList } from '../state/departmentSlice';
+
 import '../styles/ModelDepartment.scss';
 import ModelPerson from './ModelPerson';
-
-import { testState } from '../state/initial-state';
 
 interface DepartmentProps {
   name: string;
 }
 
 const ModelDepartment: FunctionComponent<DepartmentProps> = ( {name} ) => {
-  const department = testState.departments.find((element) => element.name === name);
+
+  const departmentList = useSelector(selectDepartmentList);
+  const department = departmentList.find((element) => element.name === name);
+  console.log('Selector test in ModelDepartment - department');
+  console.log(department);
+
   return (
     <div className="Department">
       {
@@ -26,7 +32,7 @@ const ModelDepartment: FunctionComponent<DepartmentProps> = ( {name} ) => {
           </div> 
           <div className="DepartmentStaff">
             Staff:
-            {  
+            {
               ( department.staffList.length > 0 ) ?
               department.staffList.map((person) => 
                 <ModelPerson name={person.name} key={person.name} />

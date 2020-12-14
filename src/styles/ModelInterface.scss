@@ -5,4 +5,36 @@
 .ModelInterface {
   padding: 10px;
   background-color: lightblue;
+
+  h3 {
+    text-align: left;
+  }
+
+  button {
+    padding: 20px 40px;
+    font-size: 1.5em;
+  }
+
+  .jobType {
+    padding: 10px;
+    list-style: none;
+
+    li {
+      padding: 10px;
+      border: 1px ridge #aaa;
+      cursor: pointer;
+      &:hover {
+        background-color: #aaaa;
+      }
+    }
+  }
+
+  .selected {
+    background-color: #aaa;
+  }
+
+  .inputError {
+    outline: 3px solid red;
+  }
+
 }

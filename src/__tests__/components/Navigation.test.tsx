@@ -2,33 +2,27 @@
 
 import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from '../../state/store';
 import { render, screen } from '@testing-library/react';
-import Navigation from '../../components/Navigation';
+import Navigation, { linkList } from '../../components/Navigation';
 
 // Navigation without props is not rendered due to props type check
 
 test('Navigation root element and route links are present', () => {
-  const routeProps  = [
-    {
-      name: 'About',
-      link: '/about'
-    },
-    {
-      name: 'Home',
-      link: '/'
-    }
-  ];
   render(
-    <Router>
-      <Navigation routes={routeProps} />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Navigation />
+      </Router>
+    </Provider>
   );
   const rootElement = document.getElementsByClassName('Navigation')[0];
   expect(rootElement).toBeInTheDocument();
-  for (let prop of routeProps) {
-    let a = screen.getByText(prop.name);
+  for (let component of linkList) {
+    let a = screen.getByText(component.name) as HTMLAnchorElement;
     expect(a.tagName).toBe('A');
-    expect(a.href).toMatch(new RegExp(prop.link));
+    expect(a.href).toMatch(new RegExp(component.link));
   }
 
 });

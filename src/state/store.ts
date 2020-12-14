@@ -1,18 +1,30 @@
-// initial-state.ts
+// store.ts
+// store and initial state
+
+import { configureStore } from '@reduxjs/toolkit';
+import staffReducer from './staffSlice';
+import departmentReducer from './departmentSlice';
 
 import { Department } from "../model/departments";
 import { Person, Administrator, Worker } from '../model/staff';
 import { WorkerJob, AdminJob } from "../model/jobs";
 import { Task } from "../model/tasks";
 
-interface State {
+export const store = configureStore({
+  reducer: {
+    staff: staffReducer,
+    departments: departmentReducer
+  },
+});
+
+export interface RootState {
   departments: Department[];
   staff: Person[];
   taskList: Task[];
   selected: Person | Department | null;
 }
 
-export const initialState: State = {
+export const initialState: RootState = {
   departments: [
     new Department('Main Administartion'),
     new Department('General Science')

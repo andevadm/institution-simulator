@@ -27,4 +27,17 @@ class Department {
 
 }
 
+// Object Constructor test - for Redux store
+/*
+export interface DepartmentType {
+  name: string; // unique id
+  head: Administrator | undefined;
+  staffList: Person[];
+}
+const Department = function (this: DepartmentType, name: string) {
+  this.name = name;
+  this.staffList = [];
+} as any as { new (name: string): DepartmentType }
+*/
+
 export { Department }

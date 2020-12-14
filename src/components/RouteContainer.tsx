@@ -8,41 +8,29 @@ import {
 } from "react-router-dom";
 
 import '../styles/RouteContainer.scss';
+// Components for main routes 
+import Home from './Home';
+import Model from './Model';
+import Info from './Info';
 
-interface RouteContainerProps {
-  routes: {
-    component: FunctionComponent,
-    link: string
-  }[]
-}
+const RouteContainer: FunctionComponent<{}> = () => {
 
-const RouteContainer: FunctionComponent<RouteContainerProps> = ({ routes }) => {
-  // default Home route should be in the end
-  const errorInRoutes: boolean = (routes[routes.length-1].link !== '/');
   return (
     <div className="RouteContainer">
       <Switch>
-        { 
-          (errorInRoutes) ? 
-
-          <Route path='/'>
-            <div className="error">
-              Homepage route is not found in the correct place. Please check the routes list.
-            </div>
-          </Route> :
-          
-          routes.map((route, index) => 
-            <Route 
-              path={route.link}
-              key={index}  
-            >
-              {route.component}
-            </Route>
-          )
-        }
+        <Route path='/model'>
+          <Model />
+        </Route>
+        <Route path='/info'>
+          <Info />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
       </Switch>
     </div>
   )
+
 }
 
 export default RouteContainer;

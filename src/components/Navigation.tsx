@@ -1,24 +1,38 @@
 // Navigation.tsx
-// Component with top navigation
+// Component with top navigation and link list
 
 import React, { FunctionComponent } from 'react';
 import { NavLink } from "react-router-dom";
 
 import '../styles/Navigation.scss';
 
-interface NavigationProps {
-  routes: {
-    name: string,
-    link: string
-  }[]
+interface ComponentLink {  
+  name: string;
+  link: string;
 }
 
-const Navigation: FunctionComponent<NavigationProps> = ({ routes }) =>  {
+// List of routes
+export const linkList: ComponentLink[] = [
+  {
+    name: 'Home',
+    link: '/'
+  },
+  {
+    name: 'Model',
+    link: '/model'
+  },
+  {
+    name: 'Info',
+    link: '/info'
+  }
+];
+
+const Navigation: FunctionComponent<{}> = () =>  {
+
   return (
     <div className="Navigation">
       {
-        // reverse list to move Home from end to begin of navigation
-        routes.map((element, index) => 
+        linkList.map((element, index) => 
           <NavLink 
             to={element.link || '#'} 
             key={`${index} : ${element.name}`}
@@ -27,7 +41,7 @@ const Navigation: FunctionComponent<NavigationProps> = ({ routes }) =>  {
           >
             {element.name}
           </NavLink>
-        ).reverse()
+        )
       }
     </div>
   )

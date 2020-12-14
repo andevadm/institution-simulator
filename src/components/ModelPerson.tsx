@@ -3,16 +3,22 @@
 
 import React, { FunctionComponent } from 'react';
 
-import '../styles/ModelPerson.scss';
+import { useSelector } from 'react-redux';
+import { selectStaffList } from '../state/staffSlice';
 
-import { testState } from '../state/initial-state';
+import '../styles/ModelPerson.scss';
 
 interface PersonProps {
   name: string;
 }
 
 const ModelPerson: FunctionComponent<PersonProps> = ({name}) => {
-  const person = testState.staff.find((element) => element.name === name);
+
+  const staffList = useSelector(selectStaffList);
+  const person = staffList.find((element) => element.name === name);
+  console.log('Selector test in ModelPerson - staffList');
+  console.log(staffList);
+
   return (   
     <div className="Person">
       {

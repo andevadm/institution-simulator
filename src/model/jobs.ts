@@ -1,6 +1,11 @@
 // jobs.ts
 // job types
 
+export enum JobType {
+  Admin = "Administration",
+  Work = "Workers"
+}
+
 export enum WorkerJob {
   Teach = "Professor",
   Research = "Researcher",
