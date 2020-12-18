@@ -2,24 +2,31 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
-import { Person } from '../model/staff';
+import { StaffInterface, createStaff } from '../model/staff';
+import { Job } from '../model/jobs';
+import { ID } from "../model/root";
+
+const initialState = [] as StaffInterface[];
 
 // Slice
 export const staffSlice = createSlice({
   name: 'staff',
-  initialState: [] as Person[], // import from initialState.staff creates Range Error: Maximum call stack size exceeded
+  initialState,
   reducers: {
-    hire: (state, action: PayloadAction<Person>) => {
-      state.push(action.payload)
+    addStaff: (state, action: PayloadAction<[string, Job, ID]>) => {
+      const newStaff = createStaff(...action.payload);
+      state.push(newStaff);
     },
-    dismiss: (state, action: PayloadAction<Person>) => {
-      state.splice(state.indexOf(action.payload), 1)
-    }
+    fireStaff: (state, action: PayloadAction<ID>) => {
+      const index = state.findIndex(element => element.id === action.payload );
+      state.splice(index, 1);
+    },
+    resetStaff: state => initialState
   }
 })
 
 // Actions
-export const { hire, dismiss } = staffSlice.actions;
+export const { addStaff, fireStaff, resetStaff } = staffSlice.actions;
 
 // Selector
 export const selectStaffList = (state: RootState) => state.staff;

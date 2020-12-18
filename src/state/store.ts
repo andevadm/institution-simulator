@@ -2,38 +2,45 @@
 // store and initial state
 
 import { configureStore } from '@reduxjs/toolkit';
-import staffReducer from './staffSlice';
 import departmentReducer from './departmentSlice';
+import staffReducer from './staffSlice';
+import taskReducer from './taskSlice';
+import activeReducer from './activeSlice';
 
-import { Department } from "../model/departments";
-import { Person, Administrator, Worker } from '../model/staff';
-import { WorkerJob, AdminJob } from "../model/jobs";
-import { Task } from "../model/tasks";
+import { ElementSelector } from "../model/root";
+import { DepartmentInterface } from "../model/departments";
+import { StaffInterface } from '../model/staff';
+import { TaskInterface } from "../model/tasks";
+
+export interface RootState {
+  departments: DepartmentInterface[];
+  staff: StaffInterface[];
+  tasks: TaskInterface[];
+  active: ElementSelector; // selected person, department or institution (default null)
+}
 
 export const store = configureStore({
   reducer: {
     staff: staffReducer,
-    departments: departmentReducer
+    departments: departmentReducer,
+    tasks: taskReducer,
+    active: activeReducer
   },
 });
 
-export interface RootState {
-  departments: Department[];
-  staff: Person[];
-  taskList: Task[];
-  selected: Person | Department | null;
-}
-
+/*
 export const initialState: RootState = {
   departments: [
-    new Department('Main Administartion'),
-    new Department('General Science')
+    createDepartment('Main Administration'),
+    createDepartment('General Science')
   ],
   staff: [],
   taskList: [],
   selected: null
 }
+*/
 
+/*
 const testState = {
   departments: initialState.departments,
   staff: [
@@ -45,3 +52,4 @@ const testState = {
 testState.departments[0].staffList.push(testState.staff[0]);
 testState.departments[1].staffList.push(testState.staff[1]);
 export { testState }
+*/

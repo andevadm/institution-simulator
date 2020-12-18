@@ -22,7 +22,7 @@ const Model: FunctionComponent<{}> = () => {
       <ModelInterface />
       { 
         departmentList.map((element) => 
-          <ModelDepartment name={element.name} key={element.name} />
+          <ModelDepartment name={element.name} key={element.id} />
         )
       }
     </div>

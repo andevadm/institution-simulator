@@ -6,16 +6,19 @@ import React, { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { selectStaffList } from '../state/staffSlice';
 
+import { ID } from "../model/root";
+import { getExperience } from "../model/staff";
+
 import '../styles/ModelPerson.scss';
 
 interface PersonProps {
-  name: string;
+  id: ID;
 }
 
-const ModelPerson: FunctionComponent<PersonProps> = ({name}) => {
+const ModelPerson: FunctionComponent<PersonProps> = ({id}) => {
 
   const staffList = useSelector(selectStaffList);
-  const person = staffList.find((element) => element.name === name);
+  const person = staffList.find((element) => element.id === id);
   console.log('Selector test in ModelPerson - staffList');
   console.log(staffList);
 
@@ -23,10 +26,10 @@ const ModelPerson: FunctionComponent<PersonProps> = ({name}) => {
     <div className="Person">
       {
         ( person === undefined ) ?
-        <h3>Person <strong>{name}</strong> is not present</h3> :
+        <h3>Person <strong>{id}</strong> is not present</h3> :
         <>
           <h3>{person.name}</h3>
-          <p>{person.job}, worked for {person.getExperience()} min</p>
+          <p>{person.job}, worked for {getExperience(person)} min</p>
         </>
       }
     </div>

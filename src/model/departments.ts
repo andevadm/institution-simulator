@@ -1,9 +1,44 @@
 // departments.ts
-// classes modeling departments
+// Department objects and functions
 
-import { Person, Administrator } from './staff';
+import { ID } from "./root";
+import { JobType } from './jobs';
+import { nanoid } from '@reduxjs/toolkit';
 
-// root department class
+// Department as serializable object
+export interface DepartmentInterface {
+  id: ID;
+  name: string;
+  type: JobType;
+  head: ID | null;
+  staffList: ID[];
+}
+
+export function createDepartment(name: string, type: JobType): DepartmentInterface {
+    return {
+      id: nanoid(),
+      name: (name.length > 0) ? name : 'Noname Department',
+      type,
+      head: null,
+      staffList: []
+    }
+}
+
+export function getHeadName(department: DepartmentInterface) {
+  return department.id.toString();
+}
+
+// Department constructor function - also creates non-serializable object
+/*
+export const Department = function (this: DepartmentInterface, name: string) {
+  this.id = nanoid();
+  this.name = name;
+  this.staffList = []; // test value
+} as any as { new (name: string): DepartmentInterface }
+*/
+
+// initial Department class - not used for Redux as non-serializable data
+/*
 class Department {
   name: string; // unique id
   head: Administrator | undefined;
@@ -26,18 +61,4 @@ class Department {
   }
 
 }
-
-// Object Constructor test - for Redux store
-/*
-export interface DepartmentType {
-  name: string; // unique id
-  head: Administrator | undefined;
-  staffList: Person[];
-}
-const Department = function (this: DepartmentType, name: string) {
-  this.name = name;
-  this.staffList = [];
-} as any as { new (name: string): DepartmentType }
 */
-
-export { Department }

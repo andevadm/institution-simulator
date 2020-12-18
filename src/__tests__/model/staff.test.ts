@@ -1,16 +1,13 @@
 // staff.test.ts
 
-import { Person } from '../../model/staff';
-import { WorkerJob } from '../../model/jobs';
-import { Department } from '../../model/departments';
+import { createStaff } from '../../model/staff';
+import { JobType, WorkerJob } from '../../model/jobs';
+import { createDepartment } from '../../model/departments';
 
 test('Instance of Person has correct properties', () => {
-  let department = new Department('Test');
-  let person = new Person('Name', WorkerJob.Research, department);
-  expect(person.name).toBe('Name');
+  let department = createDepartment('Test Department', JobType.Admin);
+  let person = createStaff('Test Name', WorkerJob.Research, department.id);
+  expect(person.name).toBe('Test Name');
   expect(person.job).toEqual(WorkerJob.Research);
-  expect(person.department).toEqual(department);
-  expect(Number.isInteger(person.hireDate)).toBeTruthy();
-  expect(Number.isInteger(person.getExperience())).toBeTruthy();
-  expect(person.getExperience()).toBeGreaterThanOrEqual(0);
+  expect(person.department).toEqual(department.id);
 });

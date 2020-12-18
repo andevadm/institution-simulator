@@ -9,7 +9,7 @@ import ModelPerson from '../../components/ModelPerson';
 test('ModelPerson root element is present', () => {
   render(
     <Provider store={store}>
-      <ModelPerson name="Test" />
+      <ModelPerson id="test" />
     </Provider>
   );
   const rootElement = document.getElementsByClassName('Person')[0];

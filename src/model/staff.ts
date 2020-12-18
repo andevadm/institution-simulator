@@ -1,11 +1,50 @@
 // staff.ts
 // classes modeling a staff
 
-import { Department } from "./departments";
-import { Job, WorkerJob, AdminJob } from "./jobs";
-import { Task } from "./tasks";
+import { Job } from "./jobs";
+import { ID } from "./root";
+import { nanoid } from '@reduxjs/toolkit';
 
-// root staff class
+// Staff as serializable object
+export interface StaffInterface {
+  id: ID;
+  name: string;
+  job: Job;
+  department: ID;
+  taskList: ID[];
+  hireDate: number;
+}
+
+export function createStaff(name: string, job: Job, department: ID): StaffInterface {
+  return {
+    id: nanoid(),
+    name: (name.length > 0) ? name : 'Noname Person',
+    job,
+    department,
+    taskList: [],
+    hireDate: Date.now()
+  }
+}
+
+export function getExperience(person: StaffInterface): number {
+  let experience = Date.now() - person.hireDate;
+  return Math.floor(experience/60000);
+}
+
+// Department constructor function - also creates non-serializable object
+/*
+export const Staff = function (this: StaffInterface, name: string, job: Job, department: ID) {
+  this.id = nanoid();
+  this.name = name;
+  this.job = job;
+  this.department = department;
+  this.hireDate = Date.now();
+  this.taskList = [];
+} as any as { new (name: string): StaffInterface }
+*/
+
+// initial Person classes - not used for Redux as non-serializable data
+/*
 class Person {
   name: string; // unique id
   job: Job;
@@ -45,10 +84,6 @@ class Person {
 
 class Administrator extends Person {
 
-  constructor(name: string, job: AdminJob, department: Department) {
-    super(name, job, department);
-  }
-
   // choose someone in administration to redirect the task
   redirect(administration: Administrator[]): Administrator {
     const otherAdmin = administration[Math.random()*(administration.length-1)];
@@ -59,10 +94,6 @@ class Administrator extends Person {
 
 class Worker extends Person {
 
-  constructor(name: string, job: WorkerJob, department: Department) {
-    super(name, job, department);
-  }
-
   // search for someone in administration to solve the task
   search(administration: Administrator[]): Administrator {
     const otherAdmin = administration[Math.random()*(administration.length-1)];
@@ -70,5 +101,4 @@ class Worker extends Person {
   }
 
 }
-
-export { Person, Administrator, Worker }
+*/

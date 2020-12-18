@@ -1,8 +1,10 @@
 // departments.test.ts
 
-import { Department } from '../../model/departments';
+import { createDepartment } from '../../model/departments';
+import { JobType } from '../../model/jobs';
 
 test('Instance of Department has correct properties', () => {
-  let department = new Department('Test');
-  expect(department.name).toBe('Test');
+  const department = createDepartment('Test Department', JobType.Admin);
+  expect(department.name).toBe('Test Department');
+  expect(department.type).toEqual(JobType.Admin);
 });

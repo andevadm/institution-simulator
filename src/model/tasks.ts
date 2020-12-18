@@ -1,15 +1,26 @@
 // tasks.ts
 // task types
 
-import { Person } from './staff';
+import { ID } from "./root";
+import { nanoid } from '@reduxjs/toolkit';
+
+export interface TaskInterface {
+  id: ID;
+  objective: Objective;
+  executor: ID;
+  status: Status;
+  notice?: any;
+}
 
 export enum Status {
-  InWork = "In work",
-  Delayed = "Under consideration",
-  Solved = "Solved",
-  Rejected = "Rejected",
-  Failed = "Not solved and closed"
+  Work = "In work",
+  Wait = "Under consideration",
+  Solve = "Solved",
+  Reject = "Rejected",
+  Fail = "Not solved and closed"
 }
+
+export type Objective = AdminObjective | WorkObjective | GeneralObjective;
 
 export enum AdminObjective {
   Prepare = "Prepare documents",
@@ -30,11 +41,11 @@ export enum GeneralObjective {
   Routine = "Preparing for a work"
 }
 
-export type Objective = AdminObjective | WorkObjective | GeneralObjective;
-
-export interface Task {
-  objective: Objective;
-  executors: Person[];
-  status: Status;
-  notice: any;
+export function createTask(objective: Objective, executor: ID): TaskInterface {
+  return {
+    id: nanoid(),
+    objective,
+    executor,
+    status: Status.Wait
+  }
 }

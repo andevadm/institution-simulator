@@ -34,44 +34,57 @@ Person actions:
 
 */
 
-import React, { FunctionComponent, MouseEvent, useState } from 'react';
+import React, { FunctionComponent, MouseEvent, SyntheticEvent, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { selectDepartmentList, add, remove } from '../state/departmentSlice';
+import { selectDepartmentList, addDepartment, resetDepartments } from '../state/departmentSlice';
+import { resetStaff } from '../state/staffSlice';
+import { resetTasks } from '../state/taskSlice';
+import { resetSelect } from '../state/activeSlice';
 
 import '../styles/ModelInterface.scss';
 
 import { JobType } from '../model/jobs';
-import { Department } from '../model/departments';
 
 const NewButtonForm: FunctionComponent<{}> = () => {
 
-  const [jobType, setJobType] = useState("adminJob" as "adminJob" | "workerJob");
+  const [jobType, setJobType] = useState(JobType.Admin as JobType);
   const departmentList = useSelector(selectDepartmentList);
   const dispatch = useDispatch();
 
   function newButtonHandler(event: MouseEvent): void {
     event.preventDefault();
     const inputName = document.getElementById("newName") as HTMLInputElement;
+    const inputNameBlock = inputName.parentElement as HTMLElement;
     const namePresent = departmentList.findIndex( element => element.name === inputName.value ) > -1;
     if ( !inputName.value || namePresent ) {
-      console.log('Name input is necessary');
-      inputName.classList.add('inputError');
+      console.log('Correct name input is necessary');
+      inputNameBlock.classList.add('inputError');
     } else {
-      const newDepartment = new Department(inputName.value);
-      dispatch(add(newDepartment));
-      inputName.classList.remove('inputError');
+      dispatch( addDepartment([inputName.value, jobType]) );
+      inputNameBlock.classList.remove('inputError');
     }
     console.log('New button click');
   }
 
   function jobTypeSelect(event: MouseEvent): void {
     const target = event.target as HTMLElement;
-    if (target.id === "adminJob" || target.id === "workerJob") {
-      setJobType(target.id)
-    }; 
-    console.log('jobType select click');
-    console.log(target.id);
+    switch (target.id) {
+      case "adminJob":
+        setJobType(JobType.Admin);
+        break;
+      case "workerJob": 
+        setJobType(JobType.Work);
+        break;
+      default:
+        console.log('Selection is not done');
+    };
+  }
+
+  function inputChangeHandler(event: SyntheticEvent): void {
+    const target = event.target as HTMLInputElement;
+    const inputNameBlock = target.parentElement as HTMLElement;
+    inputNameBlock.className = '';
   }
 
   return (
@@ -80,12 +93,14 @@ const NewButtonForm: FunctionComponent<{}> = () => {
         <button id="newButton" onClick={newButtonHandler} >
           New Department
         </button>
-        <input id="newName" type="text" placeholder="Input a new name..." required />
+        <div className="inputBlock">
+          <input id="newName" onChange={inputChangeHandler} placeholder="Input a new name..." required />
+        </div>
         <ul className="jobType" onClick={jobTypeSelect}>
-          <li id="adminJob" className={ (jobType === "adminJob") ? 'selected' : ''}>
+          <li id="adminJob" className={ (jobType === JobType.Admin) ? 'selected' : ''}>
             { JobType.Admin }
           </li>
-          <li id="workerJob" className={ (jobType === "workerJob") ? 'selected' : ''}>
+          <li id="workerJob" className={ (jobType === JobType.Work) ? 'selected' : ''}>
             { JobType.Work }
           </li>
         </ul>
@@ -98,11 +113,35 @@ const NewButtonForm: FunctionComponent<{}> = () => {
 
 }
 
+const GeneralButtons: FunctionComponent<{}> = () => {
+
+  const dispatch = useDispatch();
+
+  function resetButtonHandler(event: MouseEvent): void {
+    event.preventDefault();
+    dispatch(resetDepartments());
+    dispatch(resetStaff());
+    dispatch(resetTasks());
+    dispatch(resetSelect());
+    console.log('Reset button click');
+  }
+
+  return (
+    <div className="GeneralButtons">
+      <button id="resetButton" onClick={resetButtonHandler} >
+          Reset Model
+      </button>
+    </div>
+  )
+
+}
+
 const ModelInterface: FunctionComponent<{}> = () => {
   return (
     <div className="ModelInterface">
       <h3>Select your action</h3>
       <NewButtonForm />
+      <GeneralButtons />
     </div>
   )
 }
