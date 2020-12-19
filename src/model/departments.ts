@@ -3,7 +3,6 @@
 
 import { ID } from "./root";
 import { JobType } from './jobs';
-import { nanoid } from '@reduxjs/toolkit';
 
 // Department as serializable object
 export interface DepartmentInterface {
@@ -14,16 +13,7 @@ export interface DepartmentInterface {
   staffList: ID[];
 }
 
-export function createDepartment(name: string, type: JobType): DepartmentInterface {
-    return {
-      id: nanoid(),
-      name: (name.length > 0) ? name : 'Noname Department',
-      type,
-      head: null,
-      staffList: []
-    }
-}
-
+// ? How to get Head Name from store in this modules
 export function getHeadName(department: DepartmentInterface) {
   return department.id.toString();
 }

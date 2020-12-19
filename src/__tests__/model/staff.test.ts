@@ -1,13 +1,26 @@
 // staff.test.ts
 
-import { createStaff } from '../../model/staff';
-import { JobType, WorkerJob } from '../../model/jobs';
-import { createDepartment } from '../../model/departments';
+import { StaffInterface } from '../../model/staff';
+import { JobType, AdminJob } from '../../model/jobs';
+import { DepartmentInterface } from '../../model/departments';
 
 test('Instance of Person has correct properties', () => {
-  let department = createDepartment('Test Department', JobType.Admin);
-  let person = createStaff('Test Name', WorkerJob.Research, department.id);
-  expect(person.name).toBe('Test Name');
-  expect(person.job).toEqual(WorkerJob.Research);
+  const department: DepartmentInterface = {
+    id: 1,
+    name: 'Test Department',
+    type: JobType.Admin,
+    head: null,
+    staffList: []
+  };
+  const person = {
+    id: 1,
+    name: 'Test Person',
+    job: AdminJob.HeadGeneral,
+    department: 1,
+    taskList: [],
+    hireDate: Date.now()
+  };
+  expect(person.name).toBe('Test Person');
+  expect(person.job).toEqual(AdminJob.HeadGeneral);
   expect(person.department).toEqual(department.id);
 });

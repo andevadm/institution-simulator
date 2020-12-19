@@ -12,10 +12,14 @@ Todo first:
 - Dismiss worker
 
 Sections:
+
+- Tutorial notifications: what to do
+- Next step button (proceed the planned actions)
+- Notifications about action results
+
 - Selected Item: Person, Department or Whole Institution
 - Properties of the selected item
 - Actions with selected item
-- Notifications about action results
 If nothing selected - hide interface
 
 Institution actions:

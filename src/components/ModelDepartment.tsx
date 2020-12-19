@@ -6,19 +6,20 @@ import React, { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { selectDepartmentList } from '../state/departmentSlice';
 
+import { ID } from "../model/root";
 import { getHeadName } from "../model/departments";
 
 import '../styles/ModelDepartment.scss';
 import ModelPerson from './ModelPerson';
 
 interface DepartmentProps {
-  name: string;
+  id: ID;
 }
 
-const ModelDepartment: FunctionComponent<DepartmentProps> = ( {name} ) => {
+const ModelDepartment: FunctionComponent<DepartmentProps> = ( {id} ) => {
 
   const departmentList = useSelector(selectDepartmentList);
-  const department = departmentList.find((element) => element.name === name);
+  const department = departmentList.find((element) => element.id === id);
   console.log('Selector test in ModelDepartment - department');
   console.log(JSON.stringify(department));
 
@@ -26,7 +27,7 @@ const ModelDepartment: FunctionComponent<DepartmentProps> = ( {name} ) => {
     <div className="Department">
       {
         ( department === undefined ) ?
-        <h3>Department <strong>{name}</strong> is not present</h3> :
+        <h3>Department <strong># {id}</strong> is not present</h3> :
         <>
           <h3>{department.name}</h3>
           <div className="DepartmentHead">
@@ -39,7 +40,7 @@ const ModelDepartment: FunctionComponent<DepartmentProps> = ( {name} ) => {
               department.staffList.map((personID) => 
                 <ModelPerson id={personID} key={personID} />
               ) : 
-              <p>no staff</p> 
+              <span>no staff</span> 
             }
           </div>
         </>     

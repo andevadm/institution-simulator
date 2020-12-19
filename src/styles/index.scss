@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 }
 
-html, body, div, span, p, footer, header, h1, h2, h3 {
+html, body, div, span, p, ul, li, footer, header, h1, h2, h3 {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -27,4 +27,8 @@ body {
 
 footer, header {
 	display: block;
+}
+
+ul {
+	list-style: none;
 }

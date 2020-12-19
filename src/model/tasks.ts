@@ -2,7 +2,6 @@
 // task types
 
 import { ID } from "./root";
-import { nanoid } from '@reduxjs/toolkit';
 
 export interface TaskInterface {
   id: ID;
@@ -39,13 +38,4 @@ export enum WorkObjective {
 
 export enum GeneralObjective {
   Routine = "Preparing for a work"
-}
-
-export function createTask(objective: Objective, executor: ID): TaskInterface {
-  return {
-    id: nanoid(),
-    objective,
-    executor,
-    status: Status.Wait
-  }
 }

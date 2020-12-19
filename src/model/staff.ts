@@ -3,7 +3,6 @@
 
 import { Job } from "./jobs";
 import { ID } from "./root";
-import { nanoid } from '@reduxjs/toolkit';
 
 // Staff as serializable object
 export interface StaffInterface {
@@ -13,17 +12,6 @@ export interface StaffInterface {
   department: ID;
   taskList: ID[];
   hireDate: number;
-}
-
-export function createStaff(name: string, job: Job, department: ID): StaffInterface {
-  return {
-    id: nanoid(),
-    name: (name.length > 0) ? name : 'Noname Person',
-    job,
-    department,
-    taskList: [],
-    hireDate: Date.now()
-  }
 }
 
 export function getExperience(person: StaffInterface): number {

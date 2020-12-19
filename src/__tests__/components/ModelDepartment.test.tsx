@@ -9,7 +9,7 @@ import ModelDepartment from '../../components/ModelDepartment';
 test('ModelDepartment root element is present', () => {
   render(
     <Provider store={store}>
-      <ModelDepartment name="Test" />
+      <ModelDepartment id={1} />
     </Provider>
   );
   const rootElement = document.getElementsByClassName('Department')[0];
