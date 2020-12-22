@@ -18,7 +18,6 @@ const Model: FunctionComponent<{}> = () => {
 
   return (
     <div className="Model">
-      <h2>Institution Model</h2>
       <ModelInterface />
       { 
         departmentList.map((element) => 

@@ -5,6 +5,21 @@
 .Header {
   text-align: center;
   padding: 10px;
+  background: transparent;
+  /*
+  background: linear-gradient(
+    135deg,
+    white 49%,
+    $primary-dark 50%
+  );
+  */
+  /*
+  background: radial-gradient(
+    ellipse farthest-side at top center, 
+    white 99%, 
+    $primary-dark 100%
+  );
+  */
 
   h1 {
     font-size: 1.5rem;
@@ -12,7 +27,7 @@
   }
 
   p {
-    color: $primary-light;
+    color: $primary-normal;
   }
 
 }

@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# supplementary materials
+/supplementary
+
 # production
 /build
 

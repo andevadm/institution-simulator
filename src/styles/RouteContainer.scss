@@ -1,6 +1,15 @@
 // RouteContainer.scss
 
+@import 'Variables';
+
 .RouteContainer {
-  padding: 1em;
-  
+  padding: 10px 2px;
+}
+
+@media screen and (min-width: $media-breakpoint-sm) {
+
+  .RouteContainer {
+    padding: 10px;  
+  }
+
 }

@@ -1,0 +1,60 @@
+// InterfaceMain.scss
+
+@import 'Variables';
+
+.InterfaceMain {
+  margin: 5px 0;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 0;
+
+    &:last-child {
+      background: $primary-light;
+    }
+
+    & > div:first-child {
+        flex: 1;
+        text-align: center;
+      }
+
+    & > div:last-child {
+      flex: 4;
+      margin: 0 10px;
+      padding: 10px;
+      min-height: 100px;
+      background-color: white;
+    }
+
+  }
+
+  .institution-menu {
+    padding: 30px 0;
+    border: 5px solid $primary-light;
+    color: $primary-dark;
+    /*
+    background: $primary-dark;
+    background: linear-gradient(
+      to bottom, 
+      $secondary-dark, 
+      $secondary-normal
+    );
+    */
+    font-size: 1.1rem;
+  }
+
+}
+
+@media screen and (min-width: $media-breakpoint-sm) {
+
+  .InterfaceMain {
+  
+    & > div {
+      flex-direction: row;
+    }
+
+  }
+
+}

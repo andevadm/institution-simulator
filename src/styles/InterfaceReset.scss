@@ -1,0 +1,14 @@
+// InterfaceReset.scss
+
+@import 'Variables';
+
+.InterfaceReset {
+  margin: 5px 0;
+  text-align: right;
+
+  button {
+    color: $warning-color;
+    background-color: $secondary-dark;
+  }
+
+}

@@ -1,0 +1,53 @@
+// InterfaceCreate.scss
+
+@import 'Variables';
+
+.InterfaceCreate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px 0;
+  background-color: $primary-light;
+
+  & > * {
+    width: 100%;
+    flex: 1;
+    text-align: left;
+  }
+
+  .create-input-block {
+    padding: 0 10px;
+  }
+
+  .create-job-type {
+    width: 100%;
+    padding: 10px;
+    list-style: none;
+
+    li {
+      padding: 12.5px;
+      border: 1px solid $primary-normal;
+      text-align: center;
+
+      &:first-child {
+        border-radius: 5px 5px 0 0;
+        border-bottom: none;
+      }
+
+      &:last-child {
+        border-radius: 0 0 5px 5px;
+      }
+
+    }
+  }
+
+}
+
+@media screen and (min-width: $media-breakpoint-sm) {
+
+  .InterfaceCreate {
+      flex-direction: row;
+  }
+
+}

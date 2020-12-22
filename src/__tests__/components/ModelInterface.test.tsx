@@ -12,6 +12,6 @@ test('ModelInterface root element is present', () => {
       <ModelInterface />
     </Provider>
   );
-  const rootElement = document.getElementsByClassName('ModelInterface')[0];
+  const rootElement = document.getElementsByClassName('Interface')[0];
   expect(rootElement).toBeInTheDocument();
 });

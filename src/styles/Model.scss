@@ -3,5 +3,10 @@
 @import 'Variables';
 
 .Model {
-  background-color: white;
+  background-color: transparent;
+
+  div, form {
+    border-radius: 5px;
+  }
+
 }
