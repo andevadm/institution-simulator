@@ -8,40 +8,13 @@
     text-align: left;
   }
 
-  button {
-    @extend .interactive;
-    outline: none;
-    padding: 10px 20px;
-    margin: 0 10px 10px 10px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    color: $primary-dark;
-    @include button-gradient($secondary-light, $secondary-normal);
-  }
-
   input {
     width: 100%;
     outline: none;
     padding: 10px;
-    border: 1px solid $primary-dark;
+    border: 1px solid $primary-normal;
     border-radius: 5px;
     font-size: 1rem;
-  }
-
-  // clickable element
-  .interactive {
-    cursor: pointer;
-    &:hover {
-      @include button-gradient($secondary-light, $secondary-dark);
-      transition: all .5s;
-    }
-  }
-
-  // selected element
-  .selected {
-    color: $primary-dark;
-    @include button-gradient($secondary-light, $secondary-normal);
   }
 
   // highlight a block with warning

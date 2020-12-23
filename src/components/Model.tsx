@@ -18,6 +18,9 @@ const Model: FunctionComponent<{}> = () => {
 
   return (
     <div className="Model">
+      <h2>
+        Model
+      </h2>
       <ModelInterface />
       { 
         departmentList.map((element) => 

@@ -1,12 +1,15 @@
 // index.scss
 
-// Normalization
+// Fonts and Normalization
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import 'Variables';
 
 * {
 	box-sizing: border-box;
 }
 
-html, body, div, span, p, ul, li, footer, header, h1, h2, h3 {
+html, body, div, span, p, ul, li, footer, header, main, nav, h1, h2, h3, h4 {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -17,15 +20,15 @@ html, body, div, span, p, ul, li, footer, header, h1, h2, h3 {
 }
 
 html {
-	font: 16pt 'Arial', sans-serif;
+	font: 16pt 'Roboto', sans-serif;
 }
 
 body {
-	color: #090a0a;
+	color: $text-color; // #090a0a;
 	background-color: white;
 }
 
-footer, header {
+footer, header, main, nav {
 	display: block;
 }
 

@@ -6,9 +6,9 @@ import '../styles/Footer.scss';
 
 const Footer: FunctionComponent<{}> = () => {
   return (
-    <div className="Footer">
+    <footer className="Footer">
       Source files can be found in a GitHub repository
-    </div>
+    </footer>
   )
 }
 

@@ -30,7 +30,7 @@ export const linkList: ComponentLink[] = [
 const Navigation: FunctionComponent<{}> = () =>  {
 
   return (
-    <div className="Navigation">
+    <nav className="Navigation">
       {
         linkList.map((element, index) => 
           <NavLink 
@@ -43,7 +43,7 @@ const Navigation: FunctionComponent<{}> = () =>  {
           </NavLink>
         )
       }
-    </div>
+    </nav>
   )
 }
 

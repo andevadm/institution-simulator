@@ -16,7 +16,7 @@ import Info from './Info';
 const RouteContainer: FunctionComponent<{}> = () => {
 
   return (
-    <div className="RouteContainer">
+    <main className="RouteContainer">
       <Switch>
         <Route path='/model'>
           <Model />
@@ -28,7 +28,7 @@ const RouteContainer: FunctionComponent<{}> = () => {
           <Home />
         </Route>
       </Switch>
-    </div>
+    </main>
   )
 
 }

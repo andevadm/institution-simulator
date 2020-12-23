@@ -3,8 +3,9 @@
 @import 'Variables';
 
 .App {
-  min-width: $app-min-width;
   min-height: 100vh;
+  min-width: $app-min-width;
+  background: center / cover no-repeat url(../images/app-background.jpg);
   
   p {
     padding: 0.5em 0;
@@ -13,13 +14,35 @@
   // heading of a route page
   h2 {
     padding-bottom: 1em;
-    font-size: 1.5em;
-    color: $secondary-dark;
+    font-size: 1.8em;
+    color: $primary-dark;
   }
 
-  // general error notifications
-  .error {
-    color: red;
+  button {
+    @extend .interactive;
+    outline: none;
+    padding: 10px 20px;
+    margin: 0 10px 10px 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: white;
+    @include button-gradient($primary-normal, $primary-dark);
+  }
+
+  // clickable element
+  .interactive {
+    cursor: pointer;
+    &:hover {
+      @include button-gradient($primary-normal, $primary-normal);
+      transition: all .5s;
+    }
+  }
+
+  // selected element
+  .selected {
+    color: $primary-light;
+    background-color: $primary-dark;
   }
   
 }

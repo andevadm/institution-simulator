@@ -30,9 +30,9 @@ const ModelPerson: FunctionComponent<PersonProps> = ({id}) => {
     <div className="Person">
       {
         ( person === undefined ) ?
-        <h3>Person <strong># {id}</strong> is not present</h3> :
+        <h4>Person <strong># {id}</strong> is not present</h4> :
         <>
-          <h3>{person.name}</h3>
+          <h4>{person.name}</h4>
           <p>{person.job}, worked for {getExperience(person)} min</p>
           <div className="TaskList">
             <strong>Tasks:</strong>

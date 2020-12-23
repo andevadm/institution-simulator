@@ -5,4 +5,10 @@
 .Person {
   padding: 10px;
   background-color: $secondary-light;
+
+  h4 {
+    font-weight: 600;
+    color: $secondary-dark;
+  }
+
 }

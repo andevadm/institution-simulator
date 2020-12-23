@@ -3,31 +3,35 @@
 @import 'Variables';
 
 .Header {
-  text-align: center;
-  padding: 10px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 10px;
   background: transparent;
-  /*
-  background: linear-gradient(
-    135deg,
-    white 49%,
-    $primary-dark 50%
-  );
-  */
-  /*
-  background: radial-gradient(
-    ellipse farthest-side at top center, 
-    white 99%, 
-    $primary-dark 100%
-  );
-  */
 
-  h1 {
-    font-size: 1.5rem;
-    color: $primary-dark;
+  & > * {
+    flex: 1;
   }
 
-  p {
-    color: $primary-normal;
+  h1 {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 1px #0009, 2px 2px 5px #fff5;
+    color: $primary-light;
+    background: transparent;
+  }
+
+}
+
+@media screen and (min-width: $media-breakpoint-sm) {
+
+  .Header {
+    flex-flow: row nowrap;  
+    padding: 30px 5vw;
   }
 
 }

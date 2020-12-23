@@ -6,19 +6,31 @@ $media-breakpoint-sm: 600px;
 $media-breakpoint-lg: 1200px;
 
 // colors
-$primary-dark: #0d3052;
-$secondary-dark: #7f5d0b; // #431c5d;
-$primary-normal: #8d9aa7;
-$secondary-normal: #d5bb7c;
-$primary-light: #ced9f8;
+
+/*
+$primary-dark: #769fcd; // #0d3052;
+$secondary-dark: #a64942; //#7f5d0b; // #431c5d;
+$primary-normal: #b9d7ea; // #8d9aa7;
+$secondary-normal: #fecea8; // #d5bb7c;
+$primary-light: #f7fbfc; // #ced9f8;
 $secondary-light: #fff8e1;
-$warning-color: #a00;
+*/
+
+$text-color: #403f48;
+$warning-color: #8E3C31;
+
+$primary-dark: #596c68;
+$secondary-dark: #833E33; //#87705F; 
+$primary-normal: #95a792; 
+$secondary-normal: #A89486; 
+$primary-light: #e3d9ca; 
+$secondary-light: #FFFAF6; //#F2E9E2;
 
 @mixin button-gradient($color-start, $color-end) {
   background: $color-start;
   background: radial-gradient(
     ellipse at bottom center, 
-    $color-start 10%, 
+    $color-start 20%, 
     $color-end
   );
   box-shadow: 0 3px 4px -3px #bbb;

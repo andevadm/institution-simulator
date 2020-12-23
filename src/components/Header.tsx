@@ -3,18 +3,17 @@
 import React, { FunctionComponent } from 'react';
 
 import '../styles/Header.scss';
+import Navigation from './Navigation';
 
 const Header: FunctionComponent<{}> = () => {
 
   return (
-    <div className="Header">
+    <header className="Header">
       <h1>
         Institution Simulator
       </h1>
-      <p>
-        Fantasy model of some high school state institution
-      </p>
-    </div>
+      <Navigation />
+    </header>
   )
 
 }

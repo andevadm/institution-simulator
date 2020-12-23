@@ -3,13 +3,11 @@
 @import 'Variables';
 
 .Footer {
-  padding: 0.5em;
-  //position: absolute;
-  bottom: 0;
+  padding: 1.5rem;
   width: 100%;
 
   font-size: 0.8rem;
   text-align: center;
   color: white;
-  background-color: $primary-normal;
+  background-color: transparent;
 }

@@ -3,13 +3,18 @@
 @import 'Variables';
 
 .RouteContainer {
-  padding: 10px 2px;
+  margin: 0;
+  padding: 5vw 2px;
+  background-color: #fff;
+  background-color: #fffc;
+  box-shadow: 0 0 5px 2px #0005;
 }
 
 @media screen and (min-width: $media-breakpoint-sm) {
 
   .RouteContainer {
-    padding: 10px;  
+    margin: 0 5vw;
+    padding: 5vw;  
   }
 
 }

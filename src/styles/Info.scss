@@ -1,5 +1,35 @@
 // Info.scss
 
+@import 'Variables';
+
 .Info {
-  
+  padding: 0 5vw;
+
+  h3 {
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $primary-normal;
+  }
+
+  .info-values {
+    padding-top: .5rem;
+    padding-left: 1rem;
+
+    li {
+      padding-bottom: .5rem;
+      strong {
+        font-weight: 400;
+        &:after {
+          content: ' = ';
+        }
+      }
+      span {
+        font-weight: 700;
+        color: $primary-normal;
+      }
+    }
+
+  }
+
 }
