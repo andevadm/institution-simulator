@@ -8,8 +8,9 @@ import { resetDepartments } from '../../state/departmentSlice';
 import { resetStaff } from '../../state/staffSlice';
 import { resetTasks } from '../../state/taskSlice';
 import { resetSelect } from '../../state/activeSlice';
+import { resetNotification } from '../../state/notificationSlice';
 
-import '../../styles/InterfaceReset.scss';
+import '../../styles/model/InterfaceReset.scss';
 
 const InterfaceReset: FunctionComponent<{}> = () => {
 
@@ -21,6 +22,7 @@ const InterfaceReset: FunctionComponent<{}> = () => {
     dispatch(resetStaff());
     dispatch(resetTasks());
     dispatch(resetSelect());
+    dispatch(resetNotification());
     console.log('Reset the institution');
   }
 

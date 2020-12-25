@@ -7,8 +7,10 @@ import { useSelector } from 'react-redux';
 import { selectDepartmentList } from '../state/departmentSlice';
 
 import '../styles/Model.scss';
-import ModelDepartment from './ModelDepartment';
-import ModelInterface from './ModelInterface';
+import ModelInstitution from './model/ModelInstitution';
+import ModelDepartment from './model/ModelDepartment';
+import InterfaceMain from './model/InterfaceMain';
+import InterfaceReset from './model/InterfaceReset';
 
 const Model: FunctionComponent<{}> = () => {
 
@@ -21,12 +23,29 @@ const Model: FunctionComponent<{}> = () => {
       <h2>
         Model
       </h2>
-      <ModelInterface />
-      { 
-        departmentList.map((element) => 
-          <ModelDepartment id={element.id} key={element.id} />
-        )
-      }
+      <div className="model-tutorial">
+        <p>
+          Here is an institution. It starts with one department and one administrator.
+        </p>
+        <p>
+          You can extend the institution: create new departments and hire staff. 
+          There are 2 types of job: administration and worker. Each of them has separate tasks.
+        </p>
+        <p>
+          Manage tasks and staff. Try to make the institution workable.
+        </p>
+      </div>
+      <h3>Simulate a workday</h3>
+      <InterfaceMain />
+      <h3>Manage the institution</h3>
+      <ModelInstitution>
+        { 
+          departmentList.map((element) => 
+            <ModelDepartment id={element.id} key={element.id} />
+          )
+        }
+      </ModelInstitution>
+      <InterfaceReset />
     </div>
   );
 

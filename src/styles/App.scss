@@ -8,14 +8,34 @@
   background: center / cover no-repeat url(../images/app-background.jpg);
   
   p {
-    padding: 0.5em 0;
+    padding-bottom: 1rem;
   }
 
   // heading of a route page
   h2 {
-    padding-bottom: 1em;
-    font-size: 1.8em;
+    padding-bottom: 1.5rem;
+    font-size: 1.8rem;
     color: $primary-dark;
+  }
+
+  // heading of subchapter
+  h3 {
+    padding-top: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $primary-normal;
+  }
+
+  // department title
+  h4 {
+    color: $secondary-light;
+    font-weight: 500;
+  }
+
+  // staff title
+  h5 {
+    font-weight: 500;
+    color: $secondary-dark;
   }
 
   button {
@@ -26,15 +46,31 @@
     border: none;
     border-radius: 10px;
     font-size: 1.1rem;
-    color: white;
+    color: $secondary-light;
     @include button-gradient($primary-normal, $primary-dark);
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    border: 1px solid $primary-normal;
+    border-radius: 5px;
+    background-color: #fffa;
+    font-size: 1rem;
+  }
+
+  // highlight a block with warning
+  .warning {
+    box-shadow: 0 0 3px $warning-color;
   }
 
   // clickable element
   .interactive {
     cursor: pointer;
+    box-shadow: 0 3px 4px -2px #0008;
     &:hover {
-      @include button-gradient($primary-normal, $primary-normal);
+      background: $hover-color;
       transition: all .5s;
     }
   }

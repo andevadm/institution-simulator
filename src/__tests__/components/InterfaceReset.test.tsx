@@ -1,17 +1,17 @@
-// ModelInterface.test.tsx
+// InterfaceReset.test.tsx
 
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../state/store';
-import ModelInterface from '../../components/ModelInterface';
+import InterfaceReset from '../../components/model/InterfaceReset';
 
-test('ModelInterface root element is present', () => {
+test('InterfaceReset root element is present', () => {
   render(
     <Provider store={store}>
-      <ModelInterface />
+      <InterfaceReset />
     </Provider>
   );
-  const rootElement = document.getElementsByClassName('Interface')[0];
+  const rootElement = document.getElementsByClassName('InterfaceReset')[0];
   expect(rootElement).toBeInTheDocument();
 });

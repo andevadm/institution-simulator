@@ -1,17 +1,17 @@
-// ModelPerson.test.tsx
+// InterfaceMain.test.tsx
 
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../state/store';
-import ModelPerson from '../../components/model/ModelPerson';
+import InterfaceMain from '../../components/model/InterfaceMain';
 
-test('ModelPerson root element is present', () => {
+test('InterfaceMain root element is present', () => {
   render(
     <Provider store={store}>
-      <ModelPerson id={1} />
+      <InterfaceMain />
     </Provider>
   );
-  const rootElement = document.getElementsByClassName('Person')[0];
+  const rootElement = document.getElementsByClassName('InterfaceMain')[0];
   expect(rootElement).toBeInTheDocument();
 });

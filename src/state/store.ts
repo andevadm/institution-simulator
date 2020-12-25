@@ -6,17 +6,20 @@ import departmentReducer from './departmentSlice';
 import staffReducer from './staffSlice';
 import taskReducer from './taskSlice';
 import activeReducer from './activeSlice';
+import notificationReducer from './notificationSlice';
 
 import { ElementSelector } from "../model/root";
 import { DepartmentInterface } from "../model/departments";
 import { StaffInterface } from '../model/staff';
 import { TaskInterface } from "../model/tasks";
+import { Notification } from "../model/notification";
 
 export interface RootState {
   departments: DepartmentInterface[];
   staff: StaffInterface[];
   tasks: TaskInterface[];
   active: ElementSelector; // selected person, department or institution (default null)
+  notification: Notification[]; // notification of current workday
 }
 
 export const store = configureStore({
@@ -24,7 +27,8 @@ export const store = configureStore({
     staff: staffReducer,
     departments: departmentReducer,
     tasks: taskReducer,
-    active: activeReducer
+    active: activeReducer,
+    notification: notificationReducer
   },
 });
 

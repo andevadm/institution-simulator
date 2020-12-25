@@ -1,8 +1,9 @@
 # Workplan
 
 Todo first:
-- Main Interface
-- Institution actions
++ Main Interface, corresponding state Notification (string[]) and enum Message as notification database 
+- Basic workday simulation, corresponding state TasksPending (id[]) and function SimulateTask for random solving of pending tasks 
+- New department
 - Select department
 - New worker
 - Select worker

@@ -5,9 +5,11 @@ import React, { FunctionComponent, MouseEvent, SyntheticEvent, useState } from '
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectDepartmentList, addDepartment } from '../../state/departmentSlice';
+import { addMessage } from '../../state/notificationSlice';
 
 import { JobType } from '../../model/jobs';
-import '../../styles/InterfaceCreate.scss';
+import { Message } from '../../model/notification';
+import '../../styles/model/InterfaceCreate.scss';
 
 const InterfaceCreate: FunctionComponent<{}> = () => {
 
@@ -21,10 +23,11 @@ const InterfaceCreate: FunctionComponent<{}> = () => {
     // const inputNameBlock = inputName.parentElement as HTMLElement;
     const namePresent = departmentList.findIndex( element => element.name === inputName.value ) > -1;
     if ( !inputName.value || namePresent ) {
-      console.log('Correct name input is necessary');
       inputName.classList.add('warning');
+      dispatch( addMessage(['error', Message.errorName]) );
     } else {
       dispatch( addDepartment([inputName.value, jobType]) );
+      dispatch( addMessage(['action', Message.newDepartment]) );
     }
     console.log('New button click');
   }

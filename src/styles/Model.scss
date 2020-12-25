@@ -9,4 +9,28 @@
     border-radius: 5px;
   }
 
+  h2,
+  h3, 
+  .model-tutorial {
+    margin: 0 5vw;
+  }
+
+  .model-tutorial {
+    margin-bottom: 1rem;
+  }
+
+}
+
+@media screen and (min-width: $media-breakpoint-sm) {
+
+  .Model {
+
+    h2, 
+    h3, 
+    .model-tutorial {
+      margin: 0;
+    }
+
+  }
+
 }

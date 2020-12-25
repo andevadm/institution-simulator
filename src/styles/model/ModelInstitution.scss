@@ -1,0 +1,41 @@
+// ModelInstitution.scss
+
+@import '../Variables';
+
+.ModelInstitution {
+  margin: 1rem 0;
+  
+  // button wrapper - used for correct hover effect
+  .institution-button {
+    width: 260px;
+    margin: 0 auto;   
+    background: center / cover no-repeat url(../../images/institution-image.jpg);
+    color: $primary-light;
+    font-size: 1.1rem;
+    text-align: center;
+
+    // button itself
+    & > * {
+      padding: 160px 0 10px 0;
+    }
+
+  }
+
+  .institution-departments {
+    margin: 1rem 0;
+    border: 1px solid $primary-normal;
+  }
+
+}
+
+@media screen and (min-width: $media-breakpoint-sm) {
+
+  .ModelInstitution {
+
+    .institution-button {
+      margin: 0;
+    }
+
+  }
+
+}

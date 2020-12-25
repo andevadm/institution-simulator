@@ -4,13 +4,13 @@
 import React, { FunctionComponent } from 'react';
 
 import { useSelector } from 'react-redux';
-import { selectStaffList } from '../state/staffSlice';
-import { selectTaskList } from '../state/taskSlice';
+import { selectStaffList } from '../../state/staffSlice';
+import { selectTaskList } from '../../state/taskSlice';
 
-import { ID } from "../model/root";
-import { getExperience } from "../model/staff";
+import { ID } from "../../model/root";
+import { getExperience } from "../../model/staff";
 
-import '../styles/ModelPerson.scss';
+import '../../styles/model/ModelPerson.scss';
 
 interface PersonProps {
   id: ID;
@@ -21,18 +21,14 @@ const ModelPerson: FunctionComponent<PersonProps> = ({id}) => {
   const staffList = useSelector(selectStaffList);
   const taskList = useSelector(selectTaskList);
   const person = staffList.find((element) => element.id === id);
-  console.log('Selector test in ModelPerson - staffList');
-  console.log(staffList);
-  console.log('Selector test in ModelPerson - taskList');
-  console.log(taskList);
 
   return (   
     <div className="Person">
       {
         ( person === undefined ) ?
-        <h4>Person <strong># {id}</strong> is not present</h4> :
+        <h5>Person <strong># {id}</strong> is not present</h5> :
         <>
-          <h4>{person.name}</h4>
+          <h5>{person.name}</h5>
           <p>{person.job}, worked for {getExperience(person)} min</p>
           <div className="TaskList">
             <strong>Tasks:</strong>
