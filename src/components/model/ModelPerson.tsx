@@ -38,6 +38,7 @@ const ModelPerson: FunctionComponent<PersonProps> = ({id}) => {
               person.taskList.map((taskID) => {
                 const task = taskList.find(task => task.id === taskID);
                 if (task === undefined) return '';
+                // const taskStage = task.history[task.history.length - 1];
                 return <li key={task.id}>
                         ID: {task.id}, Objective: {task.objective}, Status: {task.status}
                       </li>

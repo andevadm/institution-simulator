@@ -11,7 +11,7 @@ const initialState = [{
   name: 'John Placeman',
   job: AdminJob.HeadGeneral,
   department: 1,
-  taskList: [ 1 ],
+  taskList: [ 1 ], // if all tasks are completed, the routine 'prepare to work' status is displayed
   hireDate: Date.now()
 }] as StaffInterface[];
 

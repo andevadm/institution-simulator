@@ -52,7 +52,8 @@
     ],
     "collectCoverageFrom": [
       "**/src/components/*.{ts,tsx}",
-      "**/src/model/*.{ts,tsx}"
+      "**/src/model/*.{ts,tsx}",
+      "**/src/components/model/*.{ts,tsx}"
     ]
   },
   "devDependencies": {
