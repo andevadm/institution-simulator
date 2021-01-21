@@ -14,9 +14,11 @@ export interface StaffInterface {
   hireDate: number;
 }
 
-export function getExperience(person: StaffInterface): number {
-  let experience = Date.now() - person.hireDate;
-  return Math.floor(experience/60000);
+// calculate experience from hiring date
+export function getExperience(hireDate: number): number {
+  const experience = Date.now() - hireDate;
+  const experienceInMinutes = Math.floor(experience/60000);
+  return experienceInMinutes;
 }
 
 // Department constructor function - also creates non-serializable object

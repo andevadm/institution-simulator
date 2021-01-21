@@ -31,7 +31,7 @@ export enum Status {
   Reject = "Rejected",
   Redirect = "Redirected",
   Solve = "Solved",
-  Fail = "Not solved and closed"
+  Fail = "Failed"
 }
 
 export type Objective = GlobalObjective | LocalObjective;

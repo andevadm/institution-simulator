@@ -92,6 +92,8 @@ export const selectTaskList = (state: RootState) => state.tasks;
 // select not completed tasks
 export const selectPendingTasks = (state: RootState) =>
   state.tasks.filter( task =>  ![Status.Solve, Status.Fail].includes(task.status) ); 
+// select single task, better transform to memoizing selector
+export const selectTaskByID = (state: RootState, id: ID) => state.tasks.find( task => task.id === id);
 
 // Reducer
 export default taskSlice.reducer;

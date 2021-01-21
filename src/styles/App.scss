@@ -30,12 +30,19 @@
   h4 {
     color: $secondary-light;
     font-weight: 500;
+    font-size: 1.1rem;
+    padding-bottom: .5rem;
   }
 
   // staff title
   h5 {
     font-weight: 500;
     color: $secondary-dark;
+  }
+
+  // task title
+  h6 {
+    font-weight: 500;
   }
 
   button {

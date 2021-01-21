@@ -1,0 +1,32 @@
+// ModelTask.scss
+
+@import '../Variables';
+
+.Task {
+  padding: 10px;
+  border: 1px solid $secondary-normal;
+  background: #fffb;
+
+  .task-history {
+    padding-top: 10px;
+  }
+
+}
+
+.TaskStage {
+  padding-top: 5px;
+}
+
+.task-solved {
+  & > .task-status,
+  & > .task-stage-status {
+    color: $primary-normal;
+  }    
+}
+
+.task-failed {
+  & > .task-status,
+  & > .task-stage-status {
+    color: $warning-color;
+  }    
+}

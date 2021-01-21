@@ -15,8 +15,6 @@ import InterfaceReset from './model/InterfaceReset';
 const Model: FunctionComponent<{}> = () => {
 
  const departmentList = useSelector( selectDepartmentList );
- console.log('Selector test in Model - departmentList');
- console.log(departmentList);
 
   return (
     <div className="Model">
