@@ -46,7 +46,7 @@
   }
 
   button {
-    @extend .interactive;
+    @extend .interactive-button;
     outline: none;
     padding: 10px 20px;
     margin: 0 10px 10px 10px;
@@ -72,20 +72,30 @@
     box-shadow: 0 0 3px $warning-color;
   }
 
-  // clickable element
+  // clickable elements
+
   .interactive {
     cursor: pointer;
-    box-shadow: 0 3px 4px -2px #0008;
     &:hover {
       background: $hover-color;
       transition: all .5s;
     }
   }
 
-  // selected element
-  .selected {
+  .interactive-button {
+    @extend .interactive;
+    box-shadow: 0 3px 4px -2px #0008;
+  }
+
+  // selected elements
+
+  .selected-total {
     color: $primary-light;
     background-color: $primary-dark;
+  }
+
+  .selected-partial {
+    box-shadow: inset 0 0 1px 3px $primary-dark;
   }
   
 }

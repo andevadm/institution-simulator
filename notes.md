@@ -4,12 +4,9 @@ Todo first:
 + Main Interface, corresponding state Notification (string[]) and enum Message as notification database 
 + Basic workday simulation: selector selectPendingTasks and simple ProcessTask function for single stage tasks 
 + ModelTask component
-- New department
-- Select department
-- New worker
-- Select worker
-- New task
-- Select task
+- Select department/worker/task: find clicked block from department component by class name and set active 
+  or make HOC wrapper component including setActive, select and interactive style functions
+- New department/worker/task options for InterfaceCreate, and position changing to selected element 
 - Improved workday simulation: ProcessTask functions for multi-stage tasks (changing local objective)
 - Improved workday simulation: ProcessTask functions for tasks changing executor
 - Dismiss worker

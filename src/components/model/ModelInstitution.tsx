@@ -6,32 +6,43 @@
 
 import React, { FunctionComponent, MouseEvent } from 'react';
 
-import { useSelector } from 'react-redux';
-import { selectActive } from '../../state/activeSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectActive, resetSelect } from '../../state/activeSlice';
 
 import '../../styles/model/ModelInstitution.scss';
 import InterfaceCreate from './InterfaceCreate';
 
 const ModelInstitution: FunctionComponent<{}> = ({ children }) => {
 
-  const activeElement = useSelector(selectActive);
+  const activeComponent = useSelector(selectActive);
+  const dispatch = useDispatch();
 
-  function institutionClickHandler(event: MouseEvent): void {
+  // check if active and set corresponding selection class
+  const isActiveComponent: boolean = (activeComponent.type === 'Institution');
+  const selectionClass: string = (isActiveComponent) ? 'selected-partial' : '';
+
+  // set Institition as active element if the institution-button is clicked
+  function selectInstitution(event: MouseEvent): void {
+    // select Institution = initial state of active element
     event.preventDefault();
-    console.log('Show/hide institution function');
+    dispatch( resetSelect() );
   }
 
   return (
     <div className="ModelInstitution">
       <div className="institution-button">
-        <div id="institution-button" className="interactive" onClick={institutionClickHandler}>
+        <div 
+          id="institution-button" 
+          className={`interactive-button ${selectionClass}`} 
+          onClick={selectInstitution}
+        >
           Institution
         </div>
       </div>
       <div>
         {
-          ( activeElement.type === "Institution" ) ?
-            <InterfaceCreate /> : null
+          ( isActiveComponent ) ?
+            <InterfaceCreate elementType="Department" /> : null
         }      
       </div>
       <div className="institution-departments">

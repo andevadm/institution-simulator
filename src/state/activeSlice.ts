@@ -2,7 +2,7 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
-import { ElementSelector } from "../model/root";
+import { ID, ElementType, ElementSelector } from "../model/root";
 
 // default null is active whole Institution
 const initialState = {
@@ -15,7 +15,13 @@ export const activeSlice = createSlice({
   name: 'active',
   initialState,
   reducers: {
-    newSelect: (state, action: PayloadAction<ElementSelector>) => action.payload,
+    newSelect: (state, action: PayloadAction<[ElementType, ID]>) => {
+      const [elementType, id] = action.payload;
+      return {
+        type: elementType,
+        id
+      }
+    },
     resetSelect: state => initialState
   }
 });

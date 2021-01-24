@@ -26,8 +26,8 @@ export interface TaskStage {
 }
 
 export enum Status {
+  Wait = "Under consideration", // initial task status
   Work = "In work",
-  Wait = "Under consideration",
   Reject = "Rejected",
   Redirect = "Redirected",
   Solve = "Solved",

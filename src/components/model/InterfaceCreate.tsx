@@ -4,32 +4,38 @@
 import React, { FunctionComponent, MouseEvent, SyntheticEvent, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { selectActive } from '../../state/activeSlice';
 import { selectDepartmentList, addDepartment } from '../../state/departmentSlice';
 import { addMessage } from '../../state/notificationSlice';
 
+import { ElementType } from '../../model/root';
 import { JobType } from '../../model/jobs';
 import { Message } from '../../model/notification';
 import '../../styles/model/InterfaceCreate.scss';
 
-const InterfaceCreate: FunctionComponent<{}> = () => {
+interface InterfaceCreateProps {
+  elementType: ElementType;
+}
+
+const InterfaceCreate: FunctionComponent<InterfaceCreateProps> = ({elementType}) => {
 
   const [jobType, setJobType] = useState(JobType.Admin as JobType);
+  const activeComponent = useSelector(selectActive); // will be used to choose form elements and labels
   const departmentList = useSelector(selectDepartmentList);
   const dispatch = useDispatch();
 
   function newButtonHandler(event: MouseEvent): void {
     event.preventDefault();
-    const inputName = document.getElementById("newName") as HTMLInputElement;
-    // const inputNameBlock = inputName.parentElement as HTMLElement;
-    const namePresent = departmentList.findIndex( element => element.name === inputName.value ) > -1;
-    if ( !inputName.value || namePresent ) {
-      inputName.classList.add('warning');
+    const newNameInputElement = document.getElementById("newName") as HTMLInputElement;
+    // const inputNameBlock = newNameInputElement.parentElement as HTMLElement;
+    const namePresent = departmentList.findIndex( element => element.name === newNameInputElement.value ) > -1;
+    if ( !newNameInputElement.value || namePresent ) {
+      newNameInputElement.classList.add('warning');
       dispatch( addMessage(['error', Message.errorName]) );
     } else {
-      dispatch( addDepartment([inputName.value, jobType]) );
+      dispatch( addDepartment([newNameInputElement.value, jobType]) );
       dispatch( addMessage(['action', Message.newDepartment]) );
     }
-    console.log('New button click');
   }
 
   function jobTypeSelect(event: MouseEvent): void {
@@ -57,7 +63,7 @@ const InterfaceCreate: FunctionComponent<{}> = () => {
       <div>
         <div className="create-button-block">
           <button id="newButton" onClick={newButtonHandler} >
-            New Department
+            New {elementType}
           </button>
         </div>
         <div className="create-input-block">
@@ -65,10 +71,10 @@ const InterfaceCreate: FunctionComponent<{}> = () => {
         </div>
       </div>
       <ul className="create-job-type" onClick={jobTypeSelect}>
-        <li id="adminJob" className={ (jobType === JobType.Admin) ? 'selected' : 'interactive'}>
+        <li id="adminJob" className={ (jobType === JobType.Admin) ? 'selected-total' : 'interactive-button'}>
           { JobType.Admin }
         </li>
-        <li id="workerJob" className={ (jobType === JobType.Work) ? 'selected' : 'interactive'}>
+        <li id="workerJob" className={ (jobType === JobType.Work) ? 'selected-total' : 'interactive-button'}>
           { JobType.Work }
         </li>
       </ul>

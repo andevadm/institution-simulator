@@ -21,7 +21,7 @@ const Home: FunctionComponent<{}> = () => {
         <strong>Info</strong> shows current statistics of the model.
       </p>
       <div>
-        <Link to="/model" className="link-model interactive">
+        <Link to="/model" className="link-model interactive-button">
           Start
         </Link>
       </div>
